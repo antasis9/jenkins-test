@@ -51,8 +51,8 @@ describe("tsyringe-parent", () => {
 
     //container.register("Logger", { useValue: Lo });
     //container.register("Logger", { useSingleton: LoggerImp });
-    //container.registerSingleton("Logger", LoggerImp);
-    container.registerInstance("Logger", mockLogger);
+    container.registerSingleton("Logger", LoggerImp);
+
     //container.register("HttpClient", { useClass: HttpClient });
 
     const myService = container.resolve(MyService);
