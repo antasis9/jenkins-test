@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { inject, injectable, container, singleton } from "tsyringe";
+import { inject, injectable, container } from "tsyringe";
 import { createMock } from "ts-auto-mock";
 import { method, On } from "ts-auto-mock/extension";
 
@@ -13,7 +13,7 @@ class LoggerImp implements Logger {
   }
 
   info(message: string): void {
-    console.log("message");
+    console.log(`${message}`);
   }
 }
 
@@ -59,6 +59,6 @@ describe("tsyringe-parent", () => {
     myService.process("seungmin.ha");
 
     const myService2 = container.resolve(MyService);
-    myService.process("seungmin.ha");
+    myService2.process("seungmin.ha");
   });
 });
