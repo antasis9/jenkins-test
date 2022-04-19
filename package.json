@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "author": "seungmin.ha",
   "license": "ISC",
@@ -30,6 +30,10 @@
     },
     "setupFiles": [
       "<rootDir>config.ts"
+    ],
+    "coverageReporters": [
+      "text",
+      "cobertura"
     ]
   },
   "devDependencies": {
