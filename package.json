@@ -31,5 +31,10 @@
     "setupFiles": [
       "<rootDir>config.ts"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0"
   }
 }
