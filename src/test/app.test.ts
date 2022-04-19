@@ -9,7 +9,7 @@ interface Logger {
 
 class LoggerImp implements Logger {
   constructor() {
-    console.log("constructor is called7!");
+    console.log("constructor is called. name was changed.");
   }
 
   info(message: string): void {
