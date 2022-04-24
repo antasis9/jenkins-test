@@ -24,3 +24,7 @@ jobs:
           node-ersion: "14"
       - run: npm install -g bats
       - run: bats -v
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: stefanoeb/jest-action@1.0.4
