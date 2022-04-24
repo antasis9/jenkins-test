@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:report": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "author": "seungmin.ha",
   "license": "ISC",
