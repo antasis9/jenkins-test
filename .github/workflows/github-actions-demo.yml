@@ -1,65 +1,11 @@
 name: Github Actions Demo
 on: [push]
 jobs:
-  Explore-Github-Actions:
-    runs-on: self-hosted
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event!."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls -a ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-  check-bats-version:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "14"
-      - run: npm install -g bats
-      - run: bats -v
-  jest:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - run: git init
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "14"
-      - run: npm install
-      - run: npm run test:report
-
-      # 테스트 결과를 담은 xml 파일을 레포트로 변환합니다.
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure() # run this step even if previous step failed
-        with:
-          name: test-results
-          path: junit.xml
-          fail-on-error: "false"
-          reporter: jest-junit # Format of test results
-          token: ${{ secrets.GITHUB_TOKEN }}
-  print:
-    runs-on: self-hosted
-    steps:
-      - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
-      - name: Dump job context
-        run: echo '${{ toJSON(job) }}'
-      - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
-      - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
-      - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
-      - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+  coverage:
+      permissions:
+        checks: write
+        pull-requests: write
+      runs-on: self-hosted
+      steps:
+          - uses: actions/checkout@v1
+          - uses: ArtiomTr/jest-coverage-report-action@v2
