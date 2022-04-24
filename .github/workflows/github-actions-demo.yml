@@ -38,7 +38,7 @@ jobs:
       - uses: stefanoeb/jest-action@1.0.4
         with:
           # Args to jest
-          jestArgs: --coverage --runInband
+          jestArgs: -i
   print:
     runs-on: self-hosted
     steps:
