@@ -2,7 +2,8 @@ name: Github Actions Demo
 on: [push]
 jobs:
   coverage:
-      permissions:
+      permissions:      
+        contents: write
         checks: write
         pull-requests: write
       runs-on: ubuntu-latest
