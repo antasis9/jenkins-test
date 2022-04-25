@@ -15,6 +15,7 @@ jobs:
               node-version: "14"
           #- run: npm install
           - uses: ArtiomTr/jest-coverage-report-action@v2
+          #- uses: actions/upload-artifact@v3.0.0
   Explore-Github-Actions:
      runs-on: self-hosted
      steps:
