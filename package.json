@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:report": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "author": "seungmin.ha",
   "license": "ISC",
@@ -30,15 +31,12 @@
     },
     "setupFiles": [
       "<rootDir>config.ts"
-    ],
-    "coverageReporters": [
-      "text",
-      "cobertura"
     ]
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
-    "eslint": "^8.13.0"
+    "eslint": "^8.13.0",
+    "jest-junit": "^13.2.0"
   }
 }
